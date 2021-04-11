@@ -125,7 +125,7 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  if (now - lastMsg > 2000) {
+  if (now - lastMsg > 200) {
     lastMsg = now;
     ++value;
     snprintf (msg, MSG_BUFFER_SIZE, "hello world #%d", value);
@@ -134,4 +134,9 @@ void loop() {
     client.publish("outTopic", msg);
     // client.publish("outTopic", msg, 1); // last parameter is undesrtood as a boolean and set the retain configuration
   }
+
+  if(value > 30*5){
+    ESP.deepSleep(30e6);
+  }
+
 }

@@ -14,9 +14,12 @@ Set-up IDE: https://docs.platformio.org/en/latest/integration/ide/vscode.html#qu
 - Reed switch
     - Shall be connected to pin RST. Ground signal must be send to RST for wake up. 
 - MQTT Client
+- Power consumptions
+    - Deep Sleep: 0.6mA
+    - Sending MQTT messages: <80mA (70-80mA)
 
 ## TODO
-- Measure power consumptions in normal and deep sleep operations
+ in normal and deep sleep operations
 - Use internal permanent memory for credentials
 - Create a wifi hotspot and a webserver when a valid configuration is not found.
     - How can this be forced for reconfiguration?
