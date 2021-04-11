@@ -1,0 +1,38 @@
+# MQTT Messages Definition
+
+- MAC Address example: 40:F5:20:33:77:16
+
+## PUBs
+- Messages that shall be published for wifi-iot device.
+
+### <MAC-Address>/DOOR
+- Retained: true
+- QoS: 1
+- Payload for closed doors: 0
+- Payload for opened doors: 1
+
+### <MAC-Address>/AIRTEMP
+- Retained: true
+- QoS: 1
+- Payload: 20.3
+
+### <MAC-Address>/AIRRH
+- Retained: true
+- QoS: 1
+- Payload: 20.3
+
+## SUBs
+- Messages that shall be subscribed by wifi-iot device.
+- Specific configurations are prioritized over global configuration.
+
+### <MAC-Address>/BUZZ
+- Retained: true
+- QoS: 1
+- Payload: 0-255
+    - It defines the volume of the buzzing. Zero means not buzzing.
+
+### GLOBAL/MSGPERIOD or <MAC-Address>/MSGPERIOD
+- Retained: false
+- QoS: 1
+- Payload: 600
+    - Expressed in seconds
