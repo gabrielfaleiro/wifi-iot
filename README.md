@@ -6,6 +6,10 @@ https://docs.platformio.org/en/latest/boards/espressif8266/d1_mini_lite.html
 
 Set-up IDE: https://docs.platformio.org/en/latest/integration/ide/vscode.html#quick-start
 
+Linux fix USB permission error: https://community.platformio.org/t/usb-permissions-error/856
+- sudo adduser \<user_name\> dialout
+- Reboot computer
+
 ## Design decisions
 - For powering the Board from a set of batteries, they shall be connected to the 5V pin of the board. It has the ME6211 integrated circuit, which outputs 3.3V when input ranges 3V to 6V.
 - Deep sleep mode:
