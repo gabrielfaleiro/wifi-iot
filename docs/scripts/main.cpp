@@ -2,20 +2,20 @@
 #include <Arduino.h>
 #include "configuration.h"
 #include "utils.h"
-#include "wifi.h"
+#include "mqtt.h"
 
 void setup() {
   DEBUG_SERIAL_SETUP(9600);
   DEBUG_SERIAL_PRINTLN("Setting up device...");
 
-  IoTWiFi wifi;
+  // May be necessary after deepSleep. Otherwise you may get "error: pll_cal exceeds 2ms!!!" when trying to connect
+  delay(1);
 
   // Network setup
-  wifi.sta_connect();
-  // mqtt_reconnect();
+  wifi_connect();
+  mqtt_reconnect();
   
   DEBUG_SERIAL_PRINTLN("Restarting device...");
-  wifi.sta_disconnect();
   ESP.restart();
   //ESP.deepSleep(1e6, RF_DISABLED);
   //ESP.deepSleep(1e6);
@@ -25,8 +25,8 @@ void setup() {
 
 void loop() {
 
-  // wifi_reconnect();
-  // mqtt_reconnect();
-  // mqtt_loop();
+  wifi_reconnect();
+  mqtt_reconnect();
+  mqtt_loop();
   
 }

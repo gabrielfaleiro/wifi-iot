@@ -5,10 +5,10 @@
 #include "utils.h"
 
 
-#ifndef _DHT11_H_
-#define _DHT11_H_
+#ifndef _DHT22_H_
+#define _DHT22_H_
 
-void dht11_setup();
-void dht11_read(int16_t *temp, int16_t *rh);
+void dht22_setup();
+void dht22_read(int16_t *temp, int16_t *rh);
 
 #endif
